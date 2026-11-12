@@ -122,8 +122,8 @@
         "position": {
           "height": 32,
           "width": 221,
-          "x": 300,
-          "y": 507
+          "x": 289.5,
+          "y": 391
         },
         "propConfig": {
           "props.text": {
@@ -147,8 +147,8 @@
         "position": {
           "height": 32,
           "width": 128,
-          "x": 56,
-          "y": 269
+          "x": 534,
+          "y": 336
         },
         "propConfig": {
           "props.value": {
