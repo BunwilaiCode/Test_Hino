@@ -1,174 +1,866 @@
 {
   "custom": {},
   "params": {},
-  "props": {},
+  "props": {
+    "defaultSize": {
+      "height": 900,
+      "width": 1280
+    }
+  },
   "root": {
     "children": [
       {
         "meta": {
-          "name": "Gauge"
+          "name": "Header"
         },
         "position": {
-          "height": 175,
-          "width": 300,
-          "x": 310,
-          "y": 126
-        },
-        "propConfig": {
-          "props.value": {
-            "binding": {
-              "config": {
-                "fallbackDelay": 2.5,
-                "mode": "direct",
-                "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed"
-              },
-              "type": "tag"
-            }
-          }
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
         },
         "props": {
-          "backgroundColor": "",
-          "innerAxis": {
-            "data": "secondaryValue",
-            "maxValue": 80,
-            "percentRadius": 85,
-            "show": false,
-            "width": 1
-          },
-          "outerAxis": {
-            "data": "value",
-            "maxValue": 120,
-            "percentRadius": 100,
-            "ranges": [
-              {
-                "color": "#77B6D8",
-                "end": 80,
-                "start": 0,
-                "width": 8
-              },
-              {
-                "color": "#6E94D7",
-                "end": 105,
-                "start": 80,
-                "width": 12
-              },
-              {
-                "color": "#7A6BD5",
-                "end": 120,
-                "start": 105,
-                "width": 16
+          "alignItems": "center",
+          "direction": "row",
+          "justify": "space-between",
+          "style": {
+            "marginBottom": "16px"
+          }
+        },
+        "type": "ia.container.flex",
+        "children": [
+          {
+            "meta": {
+              "name": "TitleBlock"
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "4px"
               }
-            ],
-            "show": true,
-            "width": 1
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "Eyebrow"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "REFRIGERATION  ·  TOWER 1",
+                  "style": {
+                    "color": "#7F93AD",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "12px",
+                    "letterSpacing": "1.5px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "ระบบติดตามน้ำและพัดลม",
+                  "style": {
+                    "color": "#F4F7FB",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "32px",
+                    "fontWeight": 700
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "หอหล่อเย็น Tower 1  ·  อ่านค่าสดจากแท็ก Ignition",
+                  "style": {
+                    "color": "#9FB0C3",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "14px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "LinkStatus"
+            },
+            "position": {
+              "basis": "auto",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed})) = 192 && toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH})) = 192, 'สัญญาณปกติ', 'ตรวจสอบการเชื่อมต่อแท็ก'), 'ตรวจสอบการเชื่อมต่อแท็ก')"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed})) = 192 && toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH})) = 192, '#123D2E', '#4A1D24'), '#4A1D24')"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "config": {
+                    "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed})) = 192 && toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH})) = 192, '#5EE0A8', '#FF8A8A'), '#FF8A8A')"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "text": "ตรวจสอบการเชื่อมต่อแท็ก",
+              "style": {
+                "backgroundColor": "#243044",
+                "borderRadius": "999px",
+                "color": "#9FB0C3",
+                "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                "fontSize": "13px",
+                "fontWeight": 700,
+                "padding": "8px 14px"
+              }
+            },
+            "type": "ia.display.label"
           }
-        },
-        "type": "ia.chart.gauge"
+        ]
       },
       {
         "meta": {
-          "name": "TextField"
+          "name": "CardRow"
         },
         "position": {
-          "height": 32,
-          "width": 150,
-          "x": 56,
-          "y": 352
+          "basis": "0%",
+          "grow": 1,
+          "shrink": 1
         },
-        "propConfig": {
-          "props.text": {
-            "binding": {
-              "config": {
-                "bidirectional": true,
-                "fallbackDelay": 2.5,
-                "mode": "direct",
-                "tagPath": "[Remote_Backup]_ExampleTest2_/TestWrite/Str"
-              },
-              "type": "tag"
-            }
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "16px"
           }
         },
-        "type": "ia.input.text-field"
+        "type": "ia.container.flex",
+        "children": [
+          {
+            "meta": {
+              "name": "FanCard"
+            },
+            "position": {
+              "basis": "0%",
+              "grow": 1,
+              "shrink": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#152033",
+                "border": "1px solid #24344D",
+                "borderRadius": "16px",
+                "padding": "20px"
+              }
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "FanHead"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "row",
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex",
+                "children": [
+                  {
+                    "meta": {
+                      "name": "FanIdentity"
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "row",
+                      "style": {
+                        "gap": "12px"
+                      }
+                    },
+                    "type": "ia.container.flex",
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "FanIcon"
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "color": "#8EB4F2",
+                          "path": "material/toys",
+                          "style": {
+                            "height": "36px",
+                            "width": "36px"
+                          }
+                        },
+                        "type": "ia.display.icon"
+                      },
+                      {
+                        "meta": {
+                          "name": "FanTitles"
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "grow": 1,
+                          "shrink": 1
+                        },
+                        "props": {
+                          "direction": "column"
+                        },
+                        "type": "ia.container.flex",
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "FanTitle"
+                            },
+                            "position": {
+                              "basis": "auto",
+                              "shrink": 0
+                            },
+                            "props": {
+                              "text": "พัดลมหอหล่อเย็น",
+                              "style": {
+                                "color": "#F4F7FB",
+                                "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                                "fontSize": "20px",
+                                "fontWeight": 700
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "FanPath"
+                            },
+                            "position": {
+                              "basis": "auto",
+                              "shrink": 0
+                            },
+                            "props": {
+                              "text": "Refrigeration/Tower1/fanSpeed",
+                              "style": {
+                                "color": "#7F93AD",
+                                "fontFamily": "Consolas, Segoe UI, monospace",
+                                "fontSize": "12px"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "meta": {
+                      "name": "FanBadge"
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed})) != 192, 'ไม่มีสัญญาณ', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed} >= 105, 'วิกฤต', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed} >= 80, 'สูง', 'ปกติ'))), 'ไม่มีสัญญาณ')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.style.backgroundColor": {
+                        "binding": {
+                          "config": {
+                            "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed})) != 192, '#243044', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed} >= 105, '#4A1D24', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed} >= 80, '#4A3B12', '#123D2E'))), '#243044')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.style.color": {
+                        "binding": {
+                          "config": {
+                            "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed})) != 192, '#9FB0C3', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed} >= 105, '#FF8A8A', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed} >= 80, '#F6D56B', '#5EE0A8'))), '#9FB0C3')"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": "ไม่มีสัญญาณ",
+                      "style": {
+                        "backgroundColor": "#243044",
+                        "borderRadius": "999px",
+                        "color": "#9FB0C3",
+                        "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                        "fontSize": "14px",
+                        "fontWeight": 700,
+                        "padding": "6px 14px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "FanValue"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "try(numberFormat({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed}, '#,##0.0'), '--')"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "text": "--",
+                  "style": {
+                    "color": "#F4F7FB",
+                    "fontFamily": "Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "56px",
+                    "fontWeight": 700,
+                    "marginTop": "8px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "FanUnit"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "ความเร็วพัดลม  ·  สเกล 0–120",
+                  "style": {
+                    "color": "#9FB0C3",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "14px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "FanGauge"
+                },
+                "position": {
+                  "basis": "240px",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "backgroundColor": "#152033",
+                  "innerAxis": {
+                    "data": "secondaryValue",
+                    "maxValue": 80,
+                    "percentRadius": 85,
+                    "show": false,
+                    "width": 1
+                  },
+                  "outerAxis": {
+                    "data": "value",
+                    "maxValue": 120,
+                    "percentRadius": 100,
+                    "ranges": [
+                      {
+                        "color": "#1F8A5B",
+                        "end": 80,
+                        "start": 0,
+                        "width": 10
+                      },
+                      {
+                        "color": "#E0B43A",
+                        "end": 105,
+                        "start": 80,
+                        "width": 12
+                      },
+                      {
+                        "color": "#D4534E",
+                        "end": 120,
+                        "start": 105,
+                        "width": 16
+                      }
+                    ],
+                    "show": true,
+                    "width": 1
+                  },
+                  "style": {
+                    "marginTop": "8px"
+                  }
+                },
+                "type": "ia.chart.gauge"
+              },
+              {
+                "meta": {
+                  "name": "FanLegend"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "ปกติ 0–80    สูง 80–105    วิกฤต 105–120",
+                  "style": {
+                    "color": "#7F93AD",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "13px",
+                    "marginTop": "8px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "WaterCard"
+            },
+            "position": {
+              "basis": "0%",
+              "grow": 1,
+              "shrink": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#152033",
+                "border": "1px solid #24344D",
+                "borderRadius": "16px",
+                "padding": "20px"
+              }
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "WaterHead"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "row",
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex",
+                "children": [
+                  {
+                    "meta": {
+                      "name": "WaterIdentity"
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "grow": 1,
+                      "shrink": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "row",
+                      "style": {
+                        "gap": "12px"
+                      }
+                    },
+                    "type": "ia.container.flex",
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "WaterIcon"
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "color": "#5ED0C8",
+                          "path": "material/opacity",
+                          "style": {
+                            "height": "36px",
+                            "width": "36px"
+                          }
+                        },
+                        "type": "ia.display.icon"
+                      },
+                      {
+                        "meta": {
+                          "name": "WaterTitles"
+                        },
+                        "position": {
+                          "basis": "auto",
+                          "grow": 1,
+                          "shrink": 1
+                        },
+                        "props": {
+                          "direction": "column"
+                        },
+                        "type": "ia.container.flex",
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "WaterTitle"
+                            },
+                            "position": {
+                              "basis": "auto",
+                              "shrink": 0
+                            },
+                            "props": {
+                              "text": "คุณภาพน้ำ",
+                              "style": {
+                                "color": "#F4F7FB",
+                                "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                                "fontSize": "20px",
+                                "fontWeight": 700
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "WaterPath"
+                            },
+                            "position": {
+                              "basis": "auto",
+                              "shrink": 0
+                            },
+                            "props": {
+                              "text": "Refrigeration/Tower1/pH",
+                              "style": {
+                                "color": "#7F93AD",
+                                "fontFamily": "Consolas, Segoe UI, monospace",
+                                "fontSize": "12px"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "meta": {
+                      "name": "WaterBadge"
+                    },
+                    "position": {
+                      "basis": "auto",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH})) != 192, 'ไม่มีสัญญาณ', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH} < 6.5, 'กรด', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH} <= 8.5, 'เหมาะสม', 'ด่างสูง'))), 'ไม่มีสัญญาณ')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.style.backgroundColor": {
+                        "binding": {
+                          "config": {
+                            "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH})) != 192, '#243044', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH} < 6.5, '#4A1D24', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH} <= 8.5, '#123D2E', '#4A3B12'))), '#243044')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.style.color": {
+                        "binding": {
+                          "config": {
+                            "expression": "try(if(toInt(qualityOf({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH})) != 192, '#9FB0C3', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH} < 6.5, '#FF8A8A', if({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH} <= 8.5, '#5EE0A8', '#F6D56B'))), '#9FB0C3')"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": "ไม่มีสัญญาณ",
+                      "style": {
+                        "backgroundColor": "#243044",
+                        "borderRadius": "999px",
+                        "color": "#9FB0C3",
+                        "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                        "fontSize": "14px",
+                        "fontWeight": 700,
+                        "padding": "6px 14px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "WaterValue"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "try(numberFormat({[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH}, '0.00'), '--')"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "text": "--",
+                  "style": {
+                    "color": "#F4F7FB",
+                    "fontFamily": "Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "56px",
+                    "fontWeight": 700,
+                    "marginTop": "8px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "WaterUnit"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "ค่า pH น้ำในหอหล่อเย็น  ·  สเกล 0–14",
+                  "style": {
+                    "color": "#9FB0C3",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "14px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "PhGauge"
+                },
+                "position": {
+                  "basis": "240px",
+                  "grow": 1,
+                  "shrink": 1
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "backgroundColor": "#152033",
+                  "innerAxis": {
+                    "data": "secondaryValue",
+                    "maxValue": 14,
+                    "percentRadius": 85,
+                    "show": false,
+                    "width": 1
+                  },
+                  "outerAxis": {
+                    "data": "value",
+                    "maxValue": 14,
+                    "percentRadius": 100,
+                    "ranges": [
+                      {
+                        "color": "#D4534E",
+                        "end": 6.5,
+                        "start": 0,
+                        "width": 12
+                      },
+                      {
+                        "color": "#1F8A5B",
+                        "end": 8.5,
+                        "start": 6.5,
+                        "width": 10
+                      },
+                      {
+                        "color": "#E0B43A",
+                        "end": 14,
+                        "start": 8.5,
+                        "width": 12
+                      }
+                    ],
+                    "show": true,
+                    "width": 1
+                  },
+                  "style": {
+                    "marginTop": "8px"
+                  }
+                },
+                "type": "ia.chart.gauge"
+              },
+              {
+                "meta": {
+                  "name": "WaterLegend"
+                },
+                "position": {
+                  "basis": "auto",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "กรด < 6.5    เหมาะสม 6.5–8.5    ด่างสูง > 8.5",
+                  "style": {
+                    "color": "#7F93AD",
+                    "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                    "fontSize": "13px",
+                    "marginTop": "8px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ]
+          }
+        ]
       },
       {
         "meta": {
-          "name": "NumericEntryField"
+          "name": "RangeBar"
         },
         "position": {
-          "height": 32,
-          "width": 150,
-          "x": 310,
-          "y": 352
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
         },
-        "propConfig": {
-          "props.value": {
-            "binding": {
-              "config": {
-                "bidirectional": true,
-                "fallbackDelay": 2.5,
-                "mode": "direct",
-                "tagPath": "[Remote_Backup]_ExampleTest2_/TestWrite/Num"
-              },
-              "type": "tag"
-            }
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#10192A",
+            "borderRadius": "12px",
+            "gap": "4px",
+            "marginTop": "16px",
+            "padding": "14px 16px"
           }
         },
-        "type": "ia.input.numeric-entry-field"
-      },
-      {
-        "meta": {
-          "name": "Label"
-        },
-        "position": {
-          "height": 32,
-          "width": 221,
-          "x": 289.5,
-          "y": 391
-        },
-        "propConfig": {
-          "props.text": {
-            "binding": {
-              "config": {
-                "fallbackDelay": 2.5,
-                "mode": "direct",
-                "publishInitial": false,
-                "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH"
-              },
-              "type": "tag"
-            }
+        "type": "ia.container.flex",
+        "children": [
+          {
+            "meta": {
+              "name": "RangeTitle"
+            },
+            "position": {
+              "basis": "auto",
+              "shrink": 0
+            },
+            "props": {
+              "text": "แหล่งแท็ก  [Remote_Backup]_ExampleTest2_",
+              "style": {
+                "color": "#C5D2E2",
+                "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                "fontSize": "13px",
+                "fontWeight": 700
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RangeDetail"
+            },
+            "position": {
+              "basis": "auto",
+              "shrink": 0
+            },
+            "props": {
+              "text": "พัดลมใช้ช่วงสีเดิมของเกจ (80 และ 105)  ·  น้ำใช้ช่วง pH ที่เหมาะกับหอหล่อเย็น  ·  แท็ก TestWrite/Str และ TestWrite/Num ไม่ได้ผูก เพราะไม่ใช่ค่ากระบวนการ",
+              "style": {
+                "color": "#7F93AD",
+                "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+                "fontSize": "12px"
+              }
+            },
+            "type": "ia.display.label"
           }
-        },
-        "type": "ia.display.label"
-      },
-      {
-        "meta": {
-          "name": "LedDisplay"
-        },
-        "position": {
-          "height": 32,
-          "width": 128,
-          "x": 534,
-          "y": 336
-        },
-        "propConfig": {
-          "props.value": {
-            "binding": {
-              "config": {
-                "fallbackDelay": 2.5,
-                "mode": "direct",
-                "publishInitial": false,
-                "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH"
-              },
-              "type": "tag"
-            }
-          }
-        },
-        "type": "ia.display.led-display"
+        ]
       }
     ],
     "meta": {
       "name": "root"
     },
-    "type": "ia.container.coord"
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#0B1220",
+        "fontFamily": "Leelawadee UI, Segoe UI, Tahoma, sans-serif",
+        "overflow": "auto",
+        "padding": "24px"
+      }
+    },
+    "type": "ia.container.flex"
   }
 }
