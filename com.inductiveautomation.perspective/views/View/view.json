@@ -1,0 +1,174 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Gauge"
+        },
+        "position": {
+          "height": 175,
+          "width": 300,
+          "x": 310,
+          "y": 126
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/fanSpeed"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "",
+          "innerAxis": {
+            "data": "secondaryValue",
+            "maxValue": 80,
+            "percentRadius": 85,
+            "show": false,
+            "width": 1
+          },
+          "outerAxis": {
+            "data": "value",
+            "maxValue": 120,
+            "percentRadius": 100,
+            "ranges": [
+              {
+                "color": "#77B6D8",
+                "end": 80,
+                "start": 0,
+                "width": 8
+              },
+              {
+                "color": "#6E94D7",
+                "end": 105,
+                "start": 80,
+                "width": 12
+              },
+              {
+                "color": "#7A6BD5",
+                "end": 120,
+                "start": 105,
+                "width": 16
+              }
+            ],
+            "show": true,
+            "width": 1
+          }
+        },
+        "type": "ia.chart.gauge"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "height": 32,
+          "width": 150,
+          "x": 56,
+          "y": 352
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[Remote_Backup]_ExampleTest2_/TestWrite/Str"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField"
+        },
+        "position": {
+          "height": 32,
+          "width": 150,
+          "x": 310,
+          "y": 352
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[Remote_Backup]_ExampleTest2_/TestWrite/Num"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 221,
+          "x": 300,
+          "y": 507
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "publishInitial": false,
+                "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay"
+        },
+        "position": {
+          "height": 32,
+          "width": 128,
+          "x": 56,
+          "y": 269
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "publishInitial": false,
+                "tagPath": "[Remote_Backup]_ExampleTest2_/Refrigeration/Tower1/pH"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.display.led-display"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}
